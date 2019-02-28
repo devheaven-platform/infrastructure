@@ -1,5 +1,5 @@
 # Infrastructure
-This repository contains the configuration files for the production &amp; test environment. The platform is deployed on a kubernetes cluster. The cluster is running on a vsphere appliance provided by fontys. 
+This repository contains the configuration files for the production &amp; test environment. The platform is deployed on a kubernetes cluster. The cluster is running on a vsphere appliance provided by fontys. Each node in the cluster uses the CentOS operating system. Credentials for the vsphere appliance and the individual nodes can be found in the Google Drive for this project.
 
 # Cluster Requirements
 ```
