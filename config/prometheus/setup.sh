@@ -5,10 +5,11 @@ echo "It expects that you have your cluster up and running and"
 echo "helm installed."
 echo
 
-read -n 1 -s -r -p "Press any key to continue: "
+printf "Please enter your grafana password: "
+read password
 
 echo "Installing prometheus"
-helm install stable/prometheus-operator --namespace monitoring --values values.yaml
+helm install stable/prometheus-operator --name=prometheus-operator --namespace monitoring --values values.yaml --set grafana.adminPassword=$password
 echo
 
 echo "Setting up monitors"
