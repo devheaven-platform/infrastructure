@@ -67,7 +67,11 @@ K8s-Node-4
 
 [Kubectl Install](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
+[NFS](http://teknoarticles.blogspot.com/2018/10/setup-nfs-client-provisioner-in.html)
+
 [Prometheus](https://itnext.io/kubernetes-monitoring-with-prometheus-in-15-minutes-8e54d1de2e13)
+
+[Prometheues Operator](https://www.novatec-gmbh.de/en/blog/scale-your-spring-boot-application-in-kubernetes/)
 
 # Contribution
 There are probably some points of improvement in the application design, structure or code.
