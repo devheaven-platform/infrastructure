@@ -1,0 +1,37 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: java-metrics
+  namespace: monitoring
+  labels:
+    monitoring-group: java
+spec:
+  selector:
+    matchLabels:
+      monitoring-group: java
+  namespaceSelector:
+    matchNames:
+    - default
+  endpoints:
+  - port: api
+    path: /metrics/prometheus
+    interval: 15s
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: python-metrics
+  namespace: monitoring
+  labels:
+    monitoring-group: python
+spec:
+  selector:
+    matchLabels:
+      monitoring-group: python
+  namespaceSelector:
+    matchNames:
+    - default
+  endpoints:
+  - port: api
+    path: /metrics
+    interval: 15s
