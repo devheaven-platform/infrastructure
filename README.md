@@ -72,11 +72,17 @@ K8s-Node-4
 
 [NFS](http://teknoarticles.blogspot.com/2018/10/setup-nfs-client-provisioner-in.html)
 
+[NFS CentOS](https://unix.stackexchange.com/questions/243756/nfs-servers-and-firewalld)
+
 [Prometheus](https://itnext.io/kubernetes-monitoring-with-prometheus-in-15-minutes-8e54d1de2e13)
 
 [Prometheues Operator](https://www.novatec-gmbh.de/en/blog/scale-your-spring-boot-application-in-kubernetes/)
 
-[Reverse Proxy pfSense](https://travellingtechguy.eu/reverse-proxy-with-pfsense-and-squid/)
+[Squid Reverse Proxy pfSense](https://travellingtechguy.eu/reverse-proxy-with-pfsense-and-squid/)
+
+[HaProxy Reverse Proxy pfSense](https://sysadms.de/2018/10/pfsense-haproxy-als-reverse-proxy/)
+
+[CI/CD Using Drone](https://medium.com/leboncoin-engineering-blog/ci-cd-with-drone-kubernetes-and-helm-part-1-a80df7098c61)
 
 # Contribution
 There are probably some points of improvement in the application design, structure or code.
