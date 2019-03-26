@@ -76,6 +76,8 @@ K8s-Node-4
 
 [Prometheues Operator](https://www.novatec-gmbh.de/en/blog/scale-your-spring-boot-application-in-kubernetes/)
 
+[Reverse Proxy pfSense](https://travellingtechguy.eu/reverse-proxy-with-pfsense-and-squid/)
+
 # Contribution
 There are probably some points of improvement in the application design, structure or code.
 
