@@ -12,7 +12,7 @@ kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceac
 echo
 
 echo "Installing tiller"
-helm init --service-account tiller
+helm init --service-account tiller --tiller-namespace helm-system
 echo
 
 echo "Done"

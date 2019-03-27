@@ -12,7 +12,13 @@ printf "Please enter your nfs share path: "
 read path
 
 echo "Installing nfs"
-helm install stable/nfs-client-provisioner --name nfs --namespace kube-system --set nfs.server=$ip --set nfs.path=$path --values values.yaml
+helm install stable/nfs-client-provisioner \
+    --name nfs \
+    --namespace kube-system \
+    --set nfs.server=$ip \
+    --set nfs.path=$path \
+    --values values.yaml \
+    --tiller-namespace helm-system
 echo
 
 echo "Set as default"

@@ -6,7 +6,11 @@ echo "helm installed."
 echo
 
 echo "Installing metallb"
-helm install stable/metallb --name metallb --namespace metallb-system --values values.yaml
+helm install stable/metallb \
+    --name metallb \
+    --namespace metallb-system \
+    --values values.yaml \
+    --tiller-namespace helm-system
 echo
 
 echo "Done"
