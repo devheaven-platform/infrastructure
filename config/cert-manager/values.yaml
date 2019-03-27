@@ -84,9 +84,9 @@ podLabels: {}
 
 nodeSelector: {}
 
-ingressShim: {}
-  # defaultIssuerName: ""
-  # defaultIssuerKind: ""
+ingressShim:
+  defaultIssuerName: letsencrypt
+  defaultIssuerKind: ClusterIssuer
   # defaultACMEChallengeType: ""
   # defaultACMEDNS01ChallengeProvider: ""
 
