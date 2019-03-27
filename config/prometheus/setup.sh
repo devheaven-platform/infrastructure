@@ -13,8 +13,7 @@ helm install stable/prometheus-operator \
     --name=prometheus-operator \
     --namespace monitoring \
     --values values.yaml \
-    --set grafana.adminPassword=$password \
-    --tiller-namespace helm-system
+    --set grafana.adminPassword=$password
 echo
 
 echo "Setting up monitors"

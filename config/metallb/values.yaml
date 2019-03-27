@@ -4,6 +4,7 @@
 
 # To configure MetalLB, you must specify ONE of the following two
 # options.
+fullnameOverride: 'metallb'
 
 # existingConfigMap specifies the name of an externally-defined
 # ConfigMap to use as the configuration. Helm will not manage the

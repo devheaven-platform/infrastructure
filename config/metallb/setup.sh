@@ -9,8 +9,7 @@ echo "Installing metallb"
 helm install stable/metallb \
     --name metallb \
     --namespace metallb-system \
-    --values values.yaml \
-    --tiller-namespace helm-system
+    --values values.yaml
 echo
 
 echo "Done"

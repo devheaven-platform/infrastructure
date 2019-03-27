@@ -1,6 +1,7 @@
 # Default values for nfs-client-provisioner.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
+fullnameOverride: 'nfs-client-provisioner'
 
 replicaCount: 1
 strategyType: Recreate

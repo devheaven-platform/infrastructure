@@ -2,6 +2,7 @@
 # This is a YAML-formatted file.
 # Declare name/value pairs to be passed into your templates.
 # name: value
+fullnameOverride: 'kubernetes-dashboard'
 
 image:
   repository: k8s.gcr.io/kubernetes-dashboard-amd64

@@ -17,8 +17,7 @@ helm install stable/nfs-client-provisioner \
     --namespace kube-system \
     --set nfs.server=$ip \
     --set nfs.path=$path \
-    --values values.yaml \
-    --tiller-namespace helm-system
+    --values values.yaml
 echo
 
 echo "Set as default"

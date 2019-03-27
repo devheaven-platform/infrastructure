@@ -6,21 +6,20 @@ echo "helm installed."
 echo
 
 echo "Creating service account"
-kubectl create ns kube-dashboard
-kubectl create serviceaccount dashboard-admin -n kube-dashboard
-kubectl create clusterrolebinding dashboard-admin --clusterrole=cluster-admin --serviceaccount=kube-dashboard:dashboard-admin
-echo
+kubectl create serviceaccount dashboard-admin -n kube-system
+kubectl create clusterrolebinding dashboard:dashboard-admin --clusterrole=cluster-admin --serviceaccount=kube-system:dashboard-admin
+echo 
 
 echo "Installing dashboard"
 helm install stable/kubernetes-dashboard \
     --name dashboard \
     --namespace kube-system \
-    --values values.yaml \
-    --tiller-namespace helm-system
+    --values values.yaml
+
 echo
 
 echo "Use the following token to interact with the dashboard:"
-kubectl describe secret dashboard-admin | awk '$1=="token:"{print $2}'
+kubectl describe secret dashboard-admin -n kube-system | awk '$1=="token:"{print $2}'
 echo
 
 echo "Done"

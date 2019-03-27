@@ -6,13 +6,12 @@ echo "helm installed on your local computer."
 echo
 
 echo "Creating service account"
-kubectl create ns helm-system
-kubectl -n helm-system create serviceaccount tiller
-kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount helm-system:tiller
+kubectl -n kube-system create serviceaccount tiller
+kubectl create clusterrolebinding helm:tiller --clusterrole cluster-admin --serviceaccount kube-system:tiller
 echo
 
 echo "Installing tiller"
-helm init --service-account tiller --tiller-namespace helm-system
+helm init --service-account tiller
 echo
 
 echo "Done"
