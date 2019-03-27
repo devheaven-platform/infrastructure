@@ -20,9 +20,5 @@ helm install stable/nfs-client-provisioner \
     --values values.yaml
 echo
 
-echo "Set as default"
-kubectl patch storageclass nfs-client -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
-echo
-
 echo "Done"
 echo

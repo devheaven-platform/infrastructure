@@ -2,7 +2,13 @@
 This repository contains the configuration files for the production &amp; test environment. The platform is deployed on a kubernetes cluster. The cluster is running on a vsphere appliance provided by fontys. Each node in the cluster uses the CentOS operating system. Credentials for the vsphere appliance and the individual nodes can be found in the Google Drive for this project.
 
 # Commands
+* Kubernetes Dashboard:
 * Grafana Dashboard: `kubectl port-forward service/prometheus-operator-grafana 3000:80 -n monitoring`
+
+# Cluster Packges
+These packages must be installed on each node for the cluster to operate:
+* rsync
+* nfs-utils
 
 # Cluster Requirements
 ```
@@ -81,6 +87,8 @@ K8s-Node-4
 [Squid Reverse Proxy pfSense](https://travellingtechguy.eu/reverse-proxy-with-pfsense-and-squid/)
 
 [HaProxy Reverse Proxy pfSense](https://sysadms.de/2018/10/pfsense-haproxy-als-reverse-proxy/)
+
+[Drone Setup](https://medium.com/honestbee-tw-engineer/setup-kubernetes-cluster-and-deploy-drone-on-aws-part-ii-c7b4a5e3f184)
 
 [CI/CD Using Drone](https://medium.com/leboncoin-engineering-blog/ci-cd-with-drone-kubernetes-and-helm-part-1-a80df7098c61)
 
