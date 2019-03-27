@@ -4,8 +4,7 @@ metadata:
   name: drone-service
   namespace: drone-system
 spec:
-  type: LoadBalancer
-  loadBalancerIP: 10.10.0.100
+  type: ClusterIP
   ports:
   - name: http
     protocol: TCP
