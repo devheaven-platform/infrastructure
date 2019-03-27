@@ -16,8 +16,8 @@ helm install stable/cert-manager \
     --values values.yaml
 echo
 
-echo "Deploy issuers"
-kubectl apply -f issuers.yaml
+echo "Deploy issuer"
+kubectl apply -f issuer.yaml
 echo
 
 echo "Done"
