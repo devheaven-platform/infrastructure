@@ -22,6 +22,7 @@ kubectl apply -f pvc.yaml
 kubectl apply -f deployment-server.yaml
 kubectl apply -f deployment-agent.yaml
 kubectl apply -f service-server.yaml
+kubectl apply -f ingress.yaml
 echo
 
 echo "Done"
