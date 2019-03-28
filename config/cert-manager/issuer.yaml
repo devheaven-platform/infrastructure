@@ -35,8 +35,8 @@ spec:
 apiVersion: certmanager.k8s.io/v1alpha1
 kind: Issuer
 metadata:
-  name: staging
-  namespace: drone-system
+  name: letsencrypt-prod
+  namespace: staging
 spec:
   acme:
     # The ACME server URL
