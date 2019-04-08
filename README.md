@@ -2,8 +2,9 @@
 This repository contains the configuration files for the production &amp; test environment. The platform is deployed on a kubernetes cluster. The cluster is running on a vsphere appliance provided by fontys. Each node in the cluster uses the CentOS operating system. Credentials for the vsphere appliance and the individual nodes can be found in the Google Drive for this project.
 
 # Commands
-* Kubernetes Dashboard:
-* Grafana Dashboard: `kubectl port-forward service/prometheus-operator-grafana 3000:80 -n monitoring`
+* Kubernetes Dashboard: `kubectl proxy` [Open Dashboard](http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:https/proxy)
+* Prometheus: `kubectl port-forward service/prometheus-operator-prometheus 9090:9090 -n monitoring`
+* Grafana Dashboard: `kubectl port-forward service/prometheus-operator-grafana 4000:80 -n monitoring`
 
 # Cluster Packges
 These packages must be installed on each node for the cluster to operate:
