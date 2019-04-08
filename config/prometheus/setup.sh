@@ -10,7 +10,7 @@ read password
 
 echo "Installing prometheus"
 helm install stable/prometheus-operator \
-    --name=prometheus-operator \
+    --name=prometheus \
     --namespace monitoring \
     --values values.yaml \
     --set grafana.adminPassword=$password

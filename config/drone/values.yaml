@@ -36,3 +36,8 @@ server:
     DRONE_LOGS_DEBUG: "true"
     DRONE_DATABASE_DRIVER: "sqlite3"
     DRONE_DATABASE_DATASOURCE: "/var/lib/drone/drone.sqlite"
+
+## Enable scraping of the /metrics endpoint for Prometheus
+metrics:
+  prometheus:
+    enabled: true

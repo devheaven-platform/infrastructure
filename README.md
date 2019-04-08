@@ -3,8 +3,8 @@ This repository contains the configuration files for the production &amp; test e
 
 # Commands
 * Kubernetes Dashboard: `kubectl proxy` [Open Dashboard](http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:https/proxy)
-* Prometheus: `kubectl port-forward service/prometheus-operator-prometheus 9090:9090 -n monitoring`
-* Grafana Dashboard: `kubectl port-forward service/prometheus-operator-grafana 4000:80 -n monitoring`
+* Prometheus: `kubectl port-forward service/prometheus-prometheus 9090:9090 -n monitoring`
+* Grafana Dashboard: `kubectl port-forward service/prometheus-grafana 8080:80 -n monitoring`
 
 # Cluster Packges
 These packages must be installed on each node for the cluster to operate:

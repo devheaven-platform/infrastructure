@@ -42,7 +42,7 @@ prometheus:
   # (https://github.com/coreos/prometheus-operator) for more powerful
   # monitoring configuration. If you use the Prometheus operator, this
   # can be left at false.
-  scrapeAnnotations: false
+  scrapeAnnotations: true
 
 serviceAccounts:
   controller:

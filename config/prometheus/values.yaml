@@ -8,7 +8,7 @@ nameOverride: ""
 
 ## Provide a name to substitute for the full names of resources
 ##
-fullnameOverride: "prometheus-operator"
+fullnameOverride: "prometheus"
 
 ## Labels to apply to all resources
 ##
