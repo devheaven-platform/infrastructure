@@ -1,0 +1,43 @@
+ingress:
+  ## If true, Drone Ingress will be created.
+  ##
+  enabled: true
+
+  ## Drone Ingress annotations
+  ##
+  annotations:
+    kubernetes.io/ingress.class: nginx
+
+  ## Drone hostnames must be provided if Ingress is enabled
+  ##
+  hosts:
+    - drone.devheaven.nl
+
+server:
+  ## If not set, it will be autofilled with the cluster host.
+  ## Host shoud be just the hostname.
+  ##
+  host: "http://drone.devheaven.nl"
+
+  ## Initial admin user
+  ## Leaving this blank may make it impossible to log into drone.
+  ## Set to a valid oauth user from your git/oauth server
+  ## For more complex user creation you can use env variables below instead.
+  adminUser: tomdewildt
+
+  ## Drone server configuration.
+  ## Values in here get injected as environment variables.
+  ## You can set up remote database servers etc using environment
+  ## variables.
+  ## ref: https://docs.drone.io/reference/server/
+  ##
+  env:
+    DRONE_OPEN: "true"
+    DRONE_LOGS_DEBUG: "true"
+    DRONE_DATABASE_DRIVER: "sqlite3"
+    DRONE_DATABASE_DATASOURCE: "/var/lib/drone/drone.sqlite"
+
+## Enable scraping of the /metrics endpoint for Prometheus
+metrics:
+  prometheus:
+    enabled: true

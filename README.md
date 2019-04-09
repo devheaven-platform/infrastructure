@@ -2,7 +2,14 @@
 This repository contains the configuration files for the production &amp; test environment. The platform is deployed on a kubernetes cluster. The cluster is running on a vsphere appliance provided by fontys. Each node in the cluster uses the CentOS operating system. Credentials for the vsphere appliance and the individual nodes can be found in the Google Drive for this project.
 
 # Commands
-* Grafana Dashboard: `kubectl port-forward service/prometheus-operator-grafana 3000:80 -n monitoring`
+* Kubernetes Dashboard: `kubectl proxy` (Use this [link](http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:https/proxy) to open the dashboard)
+* Prometheus: `kubectl port-forward service/prometheus-prometheus 9090:9090 -n monitoring`
+* Grafana Dashboard: `kubectl port-forward service/prometheus-grafana 8080:80 -n monitoring`
+
+# Cluster Packges
+These packages must be installed on each node for the cluster to operate:
+* rsync
+* nfs-utils
 
 # Cluster Requirements
 ```
@@ -12,50 +19,74 @@ VPN: vpnseclab.fhict.nl
 K8s-Master
  - Name: pts-s61e-k8s-master
  - Hostname: k8s-master.devheaven.com
- - IP: 192.168.24.50
- - CPU: 4 vCPUs
+ - IP: 10.10.0.10
+ - CPU: 2 vCPUs
  - Memory: 8 GB
  - Disk: 32GB
-
-K8s-NFS
- - Name: pts-s61e-k8s-nfs
- - Hostname: k8s-nfs.devheaven.com
- - IP: 192.168.24.51
- - CPU:4 vCPUs
- - Memory: 8 GB
- - Disk: 200GB
 
 K8s-Node-1
  - Name: pts-s61e-k8s-node-1
  - Hostname: k8s-node-1.devheaven.com
- - IP: 192.168.24.52
- - CPU: 4 vCPUs
+ - IP: 10.10.0.20
+ - CPU: 2 vCPUs
  - Memory: 8 GB
  - Disk: 32GB
  
 K8s-Node-2
  - Name: pts-s61e-k8s-node-2
  - Hostname: k8s-node-2.devheaven.com
- - IP: 192.168.24.53
- - CPU: 4 vCPUs
+ - IP: 10.10.0.30
+ - CPU: 2 vCPUs
  - Memory: 8 GB
  - Disk: 32GB
 
 K8s-Node-3
  - Name: pts-s61e-k8s-node-3
  - Hostname: k8s-node-3.devheaven.com
- - IP: 192.168.24.54
- - CPU: 4 vCPUs
+ - IP: 10.10.0.40
+ - CPU: 2 vCPUs
  - Memory: 8 GB
  - Disk: 32GB
 
 K8s-Node-4
  - Name: pts-s61e-k8s-node-4
  - Hostname: k8s-node-4.devheaven.com
- - IP: 192.168.24.55
- - CPU: 4 vCPUs
+ - IP: 10.10.0.50
+ - CPU: 2 vCPUs
  - Memory: 8 GB
  - Disk: 32GB
+
+K8s-Node-5
+ - Name: pts-s61e-k8s-node-5
+ - Hostname: k8s-node-5.devheaven.com
+ - IP: 10.10.0.60
+ - CPU: 2 vCPUs
+ - Memory: 8 GB
+ - Disk: 32GB
+
+K8s-Node-6
+ - Name: pts-s61e-k8s-node-6
+ - Hostname: k8s-node-6.devheaven.com
+ - IP: 10.10.0.70
+ - CPU: 2 vCPUs
+ - Memory: 8 GB
+ - Disk: 32GB
+
+K8s-Node-7
+ - Name: pts-s61e-k8s-node-7
+ - Hostname: k8s-node-7.devheaven.com
+ - IP: 10.10.0.80
+ - CPU: 2 vCPUs
+ - Memory: 8 GB
+ - Disk: 32GB
+
+K8s-NFS
+ - Name: pts-s61e-k8s-nfs
+ - Hostname: k8s-nfs.devheaven.com
+ - IP: 10.10.0.90
+ - CPU:4 vCPUs
+ - Memory: 8 GB
+ - Disk: 200GB
 ```
 
 # References
@@ -72,9 +103,21 @@ K8s-Node-4
 
 [NFS](http://teknoarticles.blogspot.com/2018/10/setup-nfs-client-provisioner-in.html)
 
+[NFS CentOS](https://unix.stackexchange.com/questions/243756/nfs-servers-and-firewalld)
+
 [Prometheus](https://itnext.io/kubernetes-monitoring-with-prometheus-in-15-minutes-8e54d1de2e13)
 
-[Prometheues Operator](https://www.novatec-gmbh.de/en/blog/scale-your-spring-boot-application-in-kubernetes/)
+[Prometheus Operator](https://www.novatec-gmbh.de/en/blog/scale-your-spring-boot-application-in-kubernetes/)
+
+[Prometheus / Kubeadm](https://github.com/coreos/prometheus-operator/blob/master/contrib/kube-prometheus/docs/kube-prometheus-on-kubeadm.md)
+
+[Squid Reverse Proxy pfSense](https://travellingtechguy.eu/reverse-proxy-with-pfsense-and-squid/)
+
+[HaProxy Reverse Proxy pfSense](https://sysadms.de/2018/10/pfsense-haproxy-als-reverse-proxy/)
+
+[Drone Setup](https://medium.com/honestbee-tw-engineer/setup-kubernetes-cluster-and-deploy-drone-on-aws-part-ii-c7b4a5e3f184)
+
+[CI/CD Using Drone](https://medium.com/leboncoin-engineering-blog/ci-cd-with-drone-kubernetes-and-helm-part-1-a80df7098c61)
 
 # Contribution
 There are probably some points of improvement in the application design, structure or code.

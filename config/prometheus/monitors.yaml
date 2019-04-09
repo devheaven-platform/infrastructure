@@ -11,7 +11,8 @@ spec:
       monitoring-group: java
   namespaceSelector:
     matchNames:
-    - default
+    - production
+    - staging
   endpoints:
   - port: api
     path: /metrics/prometheus
@@ -30,8 +31,89 @@ spec:
       monitoring-group: python
   namespaceSelector:
     matchNames:
-    - default
+    - production
+    - staging
   endpoints:
   - port: api
     path: /metrics
     interval: 15s
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: node-metrics
+  namespace: monitoring
+  labels:
+    monitoring-group: node
+spec:
+  selector:
+    matchLabels:
+      monitoring-group: node
+  namespaceSelector:
+    matchNames:
+    - production
+    - staging
+  endpoints:
+  - port: api
+    path: /metrics
+    interval: 15s
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: golang-metrics
+  namespace: monitoring
+  labels:
+    monitoring-group: golang
+spec:
+  selector:
+    matchLabels:
+      monitoring-group: golang
+  namespaceSelector:
+    matchNames:
+    - production
+    - staging
+  endpoints:
+  - port: api
+    path: /metrics
+    interval: 15s
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: dotnet-metrics
+  namespace: monitoring
+  labels:
+    monitoring-group: dotnet
+spec:
+  selector:
+    matchLabels:
+      monitoring-group: dotnet
+  namespaceSelector:
+    matchNames:
+    - production
+    - staging
+  endpoints:
+  - port: api
+    path: /metrics
+    interval: 15s
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: nginx-ingress-metrics
+  namespace: monitoring
+  labels:
+     monitoring-group: ingress
+spec:
+  selector:
+    matchLabels:
+      app: nginx-ingress
+      release: ingress
+  namespaceSelector:
+    matchNames:
+    - ingress-system
+  endpoints:
+  - port: metrics
+    interval: 15s
+    

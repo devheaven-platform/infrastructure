@@ -9,7 +9,11 @@ printf "Please enter your grafana password: "
 read password
 
 echo "Installing prometheus"
-helm install stable/prometheus-operator --name=prometheus-operator --namespace monitoring --values values.yaml --set grafana.adminPassword=$password
+helm install stable/prometheus-operator \
+    --name=prometheus \
+    --namespace monitoring \
+    --values values.yaml \
+    --set grafana.adminPassword=$password
 echo
 
 echo "Setting up monitors"
