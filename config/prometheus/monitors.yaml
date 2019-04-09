@@ -102,6 +102,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: nginx-ingress-metrics
+  namespace: monitoring
   labels:
      monitoring-group: ingress
 spec:
