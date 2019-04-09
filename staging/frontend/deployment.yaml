@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: devheavenci/frontend:latest
+        image: devheavenci/frontend
         ports:
         - containerPort: 80
