@@ -7,7 +7,7 @@ metadata:
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRole
 metadata:
-  name: drone-deploy
+  name: drone:drone-deploy
 rules:
   - apiGroups: ["apps","extensions"]
     resources: ["deployments"]
@@ -16,12 +16,12 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
 metadata:
-  name: drone-deploy
+  name: drone:drone-deploy
 subjects:
   - kind: ServiceAccount
     name: drone-deploy
     namespace: drone-system
 roleRef:
   kind: ClusterRole
-  name: drone-deploy
+  name: drone:drone-deploy
   apiGroup: "rbac.authorization.k8s.io"
