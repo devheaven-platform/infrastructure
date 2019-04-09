@@ -35,5 +35,9 @@ helm upgrade drone \
     stable/drone
 echo
 
+echo "Adding RBAC"
+kubectl apply -f rbac.yaml
+echo
+
 echo "Done"
 echo
