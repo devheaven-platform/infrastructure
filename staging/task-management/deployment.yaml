@@ -28,4 +28,4 @@ spec:
         - name: MONGO_DB
           value: "devheaven"
         - name: MONGO_URI
-          value: "mongodb://mongo:27017/"
+          value: "mongodb://task-management-db-service:27017/"
