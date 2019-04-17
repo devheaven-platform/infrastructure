@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: task-management-db-deployment
+  labels:
+    app: task-management-db
+  namespace: production
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: task-management-db
+  template:
+    metadata:
+      labels:
+        app: task-management-db
+    spec:
+      containers:
+      - name: task-management-mongo
+        image: mongo
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+        - name: mongo-data
+          mountPath: /data/db
+      volumes:
+      - name: mongo-data
+        persistentVolumeClaim:
+          claimName: task-management-mongo-pvc

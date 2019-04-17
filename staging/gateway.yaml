@@ -11,7 +11,7 @@ spec:
   - host: staging.devheaven.nl
     http:
       paths:
-      - path: /api/?(.*)
+      - path: /api\/(tasks|columns|boards)\/?(.+)
         backend:
           serviceName: task-management-service
           servicePort: 80
