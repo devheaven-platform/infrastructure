@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: task-management-service
+  labels:
+    app: task-management
+    monitoring-group: node
+  namespace: staging
+spec:
+  type: ClusterIP
+  ports:
+  - name: task-management
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: task-management

@@ -3,6 +3,7 @@ kind: Ingress
 metadata:
   annotations:
     kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
   name: gateway
   namespace: staging
 spec:
@@ -10,7 +11,11 @@ spec:
   - host: staging.devheaven.nl
     http:
       paths:
-      - backend:
+      - path: /api\/(tasks|columns|boards)\/?(.+)
+        backend:
+          serviceName: task-management-service
+          servicePort: 80
+      - path: /?(.*)
+        backend:
           serviceName: frontend-service
           servicePort: 80
-        path: /

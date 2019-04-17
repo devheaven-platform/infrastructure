@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: task-management-deployment
+  labels:
+    app: task-management
+  namespace: production
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: task-management
+  template:
+    metadata:
+      labels:
+        app: task-management
+    spec:
+      containers:
+      - name: task-management
+        image: devheavenci/task-management
+        ports:
+        - containerPort: 8080
+        env:
+        - name: HOSTNAME
+          value: "0.0.0.0"
+        - name: PORT
+          value: "8080"
+        - name: MONGO_DB
+          value: "devheaven"
+        - name: MONGO_URI
+          value: "mongodb://task-management-db-service:27017/"

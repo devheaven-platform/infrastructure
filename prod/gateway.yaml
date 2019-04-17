@@ -10,7 +10,11 @@ spec:
   - host: devheaven.nl
     http:
       paths:
-      - backend:
+      - path: /api\/(tasks|columns|boards)\/?(.+)
+        backend:
+          serviceName: task-management-service
+          servicePort: 80
+      - path: /
+        backend:
           serviceName: frontend-service
           servicePort: 80
-        path: /
