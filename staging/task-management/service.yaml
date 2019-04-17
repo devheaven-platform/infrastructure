@@ -4,6 +4,7 @@ metadata:
   name: task-management-service
   labels:
     app: task-management
+    monitoring-group: node
   namespace: staging
 spec:
   type: ClusterIP
