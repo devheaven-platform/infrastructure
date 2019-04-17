@@ -9,7 +9,7 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-  - name: task-management
+  - name: api
     port: 80
     protocol: TCP
     targetPort: 8080

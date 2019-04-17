@@ -8,7 +8,7 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-  - name: task-management-db
+  - name: mongo
     port: 27017
     protocol: TCP
     targetPort: 27017
