@@ -316,12 +316,12 @@ grafana:
   ingress:
     ## If true, Prometheus Ingress will be created
     ##
-    enabled: false
+    enabled: true
 
     ## Annotations for Prometheus Ingress
     ##
-    annotations: {}
-      # kubernetes.io/ingress.class: nginx
+    annotations:
+      kubernetes.io/ingress.class: nginx
       # kubernetes.io/tls-acme: "true"
 
     ## Labels to be added to the Ingress
@@ -331,14 +331,14 @@ grafana:
     ## Hostnames.
     ## Must be provided if Ingress is enable.
     ##
-    # hosts:
-    #   - prometheus.domain.com
-    hosts: []
+    hosts:
+      - grafana.devheaven.nl
+    # hosts: []
 
     ## TLS configuration for prometheus Ingress
     ## Secret must be manually created in the namespace
     ##
-    tls: []
+    # tls: []
     # - secretName: prometheus-general-tls
     #   hosts:
     #   - prometheus.example.com
