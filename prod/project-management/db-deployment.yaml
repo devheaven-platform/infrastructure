@@ -4,7 +4,7 @@ metadata:
   name: project-management-db-deployment
   labels:
     app: project-management-db
-  namespace: staging
+  namespace: production
 spec:
   replicas: 1
   selector:
