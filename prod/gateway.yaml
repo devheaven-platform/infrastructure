@@ -4,7 +4,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/rewrite-target: /$1/$2
-  name: gateway
+  name: gateway-production
   namespace: production
 spec:
   rules:
