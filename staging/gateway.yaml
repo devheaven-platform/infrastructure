@@ -15,6 +15,10 @@ spec:
         backend:
           serviceName: task-management-service
           servicePort: 80
+      - path: /api\/(projects|milestones)\/?(.+)
+        backend:
+          serviceName: project-management-service
+          servicePort: 80
       - path: /?(.*)
         backend:
           serviceName: frontend-service
