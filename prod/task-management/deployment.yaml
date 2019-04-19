@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: task-management
-        image: devheavenci/task-management
+        image: devheavenci/task-management-service
         ports:
         - containerPort: 8080
         env:
