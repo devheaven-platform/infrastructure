@@ -17,13 +17,13 @@ spec:
     spec:
       containers:
       - name: task-management
-        image: devheavenci/task-management
+        image: devheavenci/task-management-service
         ports:
         - containerPort: 8080
         env:
-        - name: HOSTNAME
+        - name: NODE_HOST
           value: "0.0.0.0"
-        - name: PORT
+        - name: NODE_PORT
           value: "8080"
         - name: MONGO_DB
           value: "devheaven"
