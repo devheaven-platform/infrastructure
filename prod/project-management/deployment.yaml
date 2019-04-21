@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project-management-deployment
+  labels:
+    app: project-management
+  namespace: production
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: project-management
+  template:
+    metadata:
+      labels:
+        app: project-management
+    spec:
+      containers:
+      - name: project-management
+        image: devheavenci/project-management-service
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_HOST
+          value: "0.0.0.0"
+        - name: SPRING_PORT
+          value: "8080"
+        - name: POSTGRES_URL
+          value: "jdbc:postgresql://project-management-db-service:5432/devheaven"
+        - name: POSTGRES_USERNAME
+          valueFrom:
+            secretKeyRef:
+                name: project-management-db
+                key: username
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+                name: project-management-db
+                key: password

@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project-management-db-deployment
+  labels:
+    app: project-management-db
+  namespace: production
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: project-management-db
+  template:
+    metadata:
+      labels:
+        app: project-management-db
+    spec:
+      containers:
+      - name: project-management-postgres
+        image: postgres:9.6
+        ports:
+        - containerPort: 5432
+        env:
+        - name: POSTGRES_DB
+          value: "devheaven"
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+                name: project-management-db
+                key: username
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+                name: project-management-db
+                key: password
+        volumeMounts:
+        - name: postgres-data
+          mountPath: /var/lib/postgresql/data
+      volumes:
+      - name: postgres-data
+        persistentVolumeClaim:
+          claimName: project-management-postgres-pvc
