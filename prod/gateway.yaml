@@ -27,11 +27,11 @@ spec:
   - host: svc.devheaven.nl
     http:
       paths:
-      - path: /(task-management)\/?(.*)
+      - path: /task-management/?(.*)
         backend:
           serviceName: task-management-service
           servicePort: 80
-      - path: /(project-management)\/?(.*)
+      - path: /project-management/?(.*)
         backend:
           serviceName: project-management-service
           servicePort: 80
