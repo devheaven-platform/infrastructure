@@ -20,7 +20,7 @@ spec:
         backend:
           serviceName: project-management-service
           servicePort: 80
-      - path: /
+      - path: /?(.*)
         backend:
           serviceName: frontend-service
           servicePort: 80
