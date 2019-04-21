@@ -4,6 +4,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/rewrite-target: /$1/$2
+    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
   name: gateway-staging
   namespace: staging
 spec:
@@ -23,3 +24,19 @@ spec:
         backend:
           serviceName: frontend-service
           servicePort: 80
+  - host: svc.staging.devheaven.nl
+    http:
+      paths:
+      - path: /(task-management)\/?(.*)
+        backend:
+          serviceName: task-management-service
+          servicePort: 80
+      - path: /(project-management)\/?(.*)
+        backend:
+          serviceName: project-management-service
+          servicePort: 80
+  tls:
+  - hosts:
+    - staging.devheaven.nl
+    - svc.staging.devheaven.nl
+    secretName: staging-cert
