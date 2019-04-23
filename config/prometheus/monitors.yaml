@@ -14,7 +14,7 @@ spec:
     - production
     - staging
   endpoints:
-  - port: api
+  - port: http
     path: /metrics/prometheus
     interval: 15s
 ---
@@ -34,7 +34,7 @@ spec:
     - production
     - staging
   endpoints:
-  - port: api
+  - port: http
     path: /metrics
     interval: 15s
 ---
@@ -54,7 +54,7 @@ spec:
     - production
     - staging
   endpoints:
-  - port: api
+  - port: http
     path: /metrics
     interval: 15s
 ---
@@ -74,7 +74,7 @@ spec:
     - production
     - staging
   endpoints:
-  - port: api
+  - port: http
     path: /metrics
     interval: 15s
 ---
@@ -94,7 +94,7 @@ spec:
     - production
     - staging
   endpoints:
-  - port: api
+  - port: http
     path: /metrics
     interval: 15s
 ---

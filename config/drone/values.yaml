@@ -7,11 +7,20 @@ ingress:
   ##
   annotations:
     kubernetes.io/ingress.class: nginx
+    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
 
   ## Drone hostnames must be provided if Ingress is enabled
   ##
   hosts:
     - drone.devheaven.nl
+
+  ## Drone Ingress TLS configuration secrets
+  ## Must be manually created in the namespace
+  ##
+  tls:
+    - secretName: drone-tls
+      hosts:
+        - drone.devheaven.nl
 
 server:
   ## If not set, it will be autofilled with the cluster host.

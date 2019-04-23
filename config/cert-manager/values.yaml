@@ -1,0 +1,4 @@
+fullnameOverride: cert-manager
+
+webhook:
+  enabled: false

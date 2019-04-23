@@ -3,7 +3,8 @@ kind: Ingress
 metadata:
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/rewrite-target: /$1/$2
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
   name: gateway-production
   namespace: production
 spec:
@@ -11,15 +12,31 @@ spec:
   - host: devheaven.nl
     http:
       paths:
-      - path: /api\/(tasks|columns|boards)\/?(.*)
+      - path: /api\/(tasks\/|columns\/|boards\/).*
         backend:
           serviceName: task-management-service
           servicePort: 80
-      - path: /api\/(projects|milestones)\/?(.*)
+      - path: /api\/(projects\/|milestones\/).*
         backend:
           serviceName: project-management-service
           servicePort: 80
-      - path: /
+      - path: /?(.*)
         backend:
           serviceName: frontend-service
           servicePort: 80
+  - host: svc.devheaven.nl
+    http:
+      paths:
+      - path: /task-management/?(.*)
+        backend:
+          serviceName: task-management-service
+          servicePort: 80
+      - path: /project-management/?(.*)
+        backend:
+          serviceName: project-management-service
+          servicePort: 80
+  tls:
+  - hosts:
+    - devheaven.nl
+    - svc.devheaven.nl
+    secretName: production-cert
