@@ -12,11 +12,11 @@ spec:
   - host: staging.devheaven.nl
     http:
       paths:
-      - path: /api\/(tasks\/|columns\/|boards\/).*
+      - path: /api\/((tasks\/|columns\/|boards\/).*)
         backend:
           serviceName: task-management-service
           servicePort: 80
-      - path: /api\/(projects\/|milestones\/).*
+      - path: /api\/((projects\/|milestones\/).*)
         backend:
           serviceName: project-management-service
           servicePort: 80
