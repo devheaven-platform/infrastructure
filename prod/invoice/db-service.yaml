@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: invoice-db-service
+  labels:
+    app: invoice-db
+  namespace: production
+spec:
+  type: ClusterIP
+  ports:
+  - name: mongo
+    port: 27017
+    protocol: TCP
+    targetPort: 27017
+  selector:
+    app: invoice-db
