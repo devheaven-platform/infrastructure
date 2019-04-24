@@ -20,6 +20,10 @@ spec:
         backend:
           serviceName: project-management-service
           servicePort: 80
+      - path: /api\/(invoices\/).*
+        backend:
+          serviceName: invoice-service
+          servicePort: 80
       - path: /?(.*)
         backend:
           serviceName: frontend-service
@@ -34,6 +38,10 @@ spec:
       - path: /project-management/?(.*)
         backend:
           serviceName: project-management-service
+          servicePort: 80
+      - path: /invoice/?(.*)
+        backend:
+          serviceName: invoice-service
           servicePort: 80
   tls:
   - hosts:

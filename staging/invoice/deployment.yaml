@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: invoice-deployment
+  labels:
+    app: invoice
+  namespace: staging
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: invoice
+  template:
+    metadata:
+      labels:
+        app: invoice
+    spec:
+      containers:
+      - name: invoice
+        image: devheavenci/invoice-service
+        ports:
+        - containerPort: 8080
+        env:
+        - name: NODE_HOST
+          value: "0.0.0.0"
+        - name: NODE_PORT
+          value: "8080"
+        - name: MONGO_DB
+          value: "devheaven"
+        - name: MONGO_URI
+          value: "mongodb://invoice-db-service:27017/"
