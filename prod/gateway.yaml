@@ -20,7 +20,7 @@ spec:
         backend:
           serviceName: project-management-service
           servicePort: 80
-      - path: /api\/(invoices\/).*
+      - path: /api\/((invoices\/).*)
         backend:
           serviceName: invoice-service
           servicePort: 80
