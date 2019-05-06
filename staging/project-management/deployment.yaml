@@ -39,6 +39,6 @@ spec:
                 name: project-management-db
                 key: password
         - name: KAFKA_HOST
-          value: "kafka.kafka-system.svc.cluster.local:9092"
+          value: "kafka-staging.kafka-staging.svc.cluster.local:9092"
         - name: KAFKA_GROUP_ID
           value: "project-management-service"

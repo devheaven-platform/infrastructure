@@ -9,14 +9,17 @@ echo "Adding repo"
 helm repo add incubator http://storage.googleapis.com/kubernetes-charts-incubator
 echo
 
-echo "Creating namespace"
-kubectl create ns kafka-system
+echo "Installing kafka in staging"
+helm install incubator/kafka \
+    --name kafka-staging \
+    --namespace staging \
+    --values values.yaml
 echo
 
-echo "Installing kafka"
+echo "Installing kafka in production"
 helm install incubator/kafka \
-    --name kafka \
-    --namespace kafka-system \
+    --name kafka-production \
+    --namespace production \
     --values values.yaml
 echo
 
