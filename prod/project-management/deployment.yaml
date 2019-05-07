@@ -7,6 +7,7 @@ metadata:
   namespace: production
 spec:
   replicas: 1
+  revisionHistoryLimit: 1
   selector:
     matchLabels:
       app: project-management
@@ -37,3 +38,7 @@ spec:
             secretKeyRef:
                 name: project-management-db
                 key: password
+        - name: KAFKA_HOST
+          value: "kafka-production.kafka-production.svc.cluster.local:9092"
+        - name: KAFKA_GROUP_ID
+          value: "project-management-service"
