@@ -7,7 +7,7 @@ imageTag: latest
 ##
 resources:
   requests:
-    memory: 512Mi
+    memory: 1024Mi
     cpu: 500m
 
 securityContext:
@@ -44,7 +44,7 @@ minecraftServer:
   # A comma-separated list of player names to whitelist.
   whitelist: 
   # A comma-separated list of player names who should be admins.
-  ops: Minecraft98Tom
+  ops: Minecraft98Tom,wailord2,Liwus
   # A server icon URL for server listings. Auto-scaled and transcoded.
   icon:
   # Max connected players.
@@ -98,7 +98,7 @@ minecraftServer:
   # Check accounts against Minecraft account service.
   onlineMode: true
   # If you adjust this, you may need to adjust resources.requests above to match.
-  jvmOpts: "-Xmx512M -Xms512M"
+  jvmOpts: "-Xmx1024M -Xms1024M -nogui"
   serviceType: LoadBalancer
   rcon:
     # If you enable this, make SURE to change your password below.
