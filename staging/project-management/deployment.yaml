@@ -26,8 +26,10 @@ spec:
           value: "0.0.0.0"
         - name: SPRING_PORT
           value: "8080"
-        - name: POSTGRES_URL
-          value: "jdbc:postgresql://project-management-db-service:5432/devheaven"
+        - name: POSTGRES_HOST
+          value: "project-management-db-service"
+        - name: POSTGRES_PORT
+          value: "5432"
         - name: POSTGRES_USERNAME
           valueFrom:
             secretKeyRef:
@@ -38,6 +40,8 @@ spec:
             secretKeyRef:
                 name: project-management-db
                 key: password
+        - name: POSTGRES_DB
+          value: "devheaven"
         - name: KAFKA_HOST
           value: "kafka-staging.kafka-staging.svc.cluster.local:9092"
         - name: KAFKA_GROUP_ID

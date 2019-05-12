@@ -18,7 +18,7 @@ VPN: vpnseclab.fhict.nl
 
 K8s-Master
  - Name: pts-s61e-k8s-master
- - Hostname: k8s-master.devheaven.com
+ - Hostname: k8s-master.devheaven.nl
  - IP: 10.10.0.10
  - CPU: 2 vCPUs
  - Memory: 8 GB
@@ -26,7 +26,7 @@ K8s-Master
 
 K8s-Node-1
  - Name: pts-s61e-k8s-node-1
- - Hostname: k8s-node-1.devheaven.com
+ - Hostname: k8s-node-1.devheaven.nl
  - IP: 10.10.0.20
  - CPU: 2 vCPUs
  - Memory: 8 GB
@@ -34,7 +34,7 @@ K8s-Node-1
  
 K8s-Node-2
  - Name: pts-s61e-k8s-node-2
- - Hostname: k8s-node-2.devheaven.com
+ - Hostname: k8s-node-2.devheaven.nl
  - IP: 10.10.0.30
  - CPU: 2 vCPUs
  - Memory: 8 GB
@@ -42,7 +42,7 @@ K8s-Node-2
 
 K8s-Node-3
  - Name: pts-s61e-k8s-node-3
- - Hostname: k8s-node-3.devheaven.com
+ - Hostname: k8s-node-3.devheaven.nl
  - IP: 10.10.0.40
  - CPU: 2 vCPUs
  - Memory: 8 GB
@@ -50,7 +50,7 @@ K8s-Node-3
 
 K8s-Node-4
  - Name: pts-s61e-k8s-node-4
- - Hostname: k8s-node-4.devheaven.com
+ - Hostname: k8s-node-4.devheaven.nl
  - IP: 10.10.0.50
  - CPU: 2 vCPUs
  - Memory: 8 GB
@@ -58,7 +58,7 @@ K8s-Node-4
 
 K8s-Node-5
  - Name: pts-s61e-k8s-node-5
- - Hostname: k8s-node-5.devheaven.com
+ - Hostname: k8s-node-5.devheaven.nl
  - IP: 10.10.0.60
  - CPU: 2 vCPUs
  - Memory: 8 GB
@@ -66,7 +66,7 @@ K8s-Node-5
 
 K8s-Node-6
  - Name: pts-s61e-k8s-node-6
- - Hostname: k8s-node-6.devheaven.com
+ - Hostname: k8s-node-6.devheaven.nl
  - IP: 10.10.0.70
  - CPU: 2 vCPUs
  - Memory: 8 GB
@@ -74,7 +74,7 @@ K8s-Node-6
 
 K8s-Node-7
  - Name: pts-s61e-k8s-node-7
- - Hostname: k8s-node-7.devheaven.com
+ - Hostname: k8s-node-7.devheaven.nl
  - IP: 10.10.0.80
  - CPU: 2 vCPUs
  - Memory: 8 GB
@@ -82,7 +82,7 @@ K8s-Node-7
 
 K8s-NFS
  - Name: pts-s61e-k8s-nfs
- - Hostname: k8s-nfs.devheaven.com
+ - Hostname: k8s-nfs.devheaven.nl
  - IP: 10.10.0.90
  - CPU:4 vCPUs
  - Memory: 8 GB
