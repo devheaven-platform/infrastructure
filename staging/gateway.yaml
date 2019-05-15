@@ -24,6 +24,14 @@ spec:
         backend:
           serviceName: invoice-service
           servicePort: 80
+      - path: /api\/((hours\/).*)
+        backend:
+          serviceName: hour-service
+          servicePort: 80
+      - path: /api\/((auth\/|users\/).*)
+        backend:
+          serviceName: auth-service
+          servicePort: 80
       - path: /?(.*)
         backend:
           serviceName: frontend-service
@@ -42,6 +50,14 @@ spec:
       - path: /invoice/?(.*)
         backend:
           serviceName: invoice-service
+          servicePort: 80
+      - path: /hour/?(.*)
+        backend:
+          serviceName: hour-service
+          servicePort: 80
+      - path: /auth/?(.*)
+        backend:
+          serviceName: auth-service
           servicePort: 80
   tls:
   - hosts:

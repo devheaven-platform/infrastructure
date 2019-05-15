@@ -9,8 +9,8 @@ spec:
   type: ClusterIP
   ports:
   - name: postgres
-    port: 5432 # TODO: change port
+    port: 5432
     protocol: TCP
-    targetPort: 5432 # TODO: change port
+    targetPort: 5432
   selector:
     app: project-management-db
