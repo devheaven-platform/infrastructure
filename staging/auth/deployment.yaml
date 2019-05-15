@@ -1,48 +1,44 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: project-management-deployment
+  name: auth-deployment
   labels:
-    app: project-management
-  namespace: production
+    app: auth
+  namespace: staging
 spec:
   replicas: 1
   revisionHistoryLimit: 1
   selector:
     matchLabels:
-      app: project-management
+      app: auth
   template:
     metadata:
       labels:
-        app: project-management
+        app: auth
     spec:
       containers:
-      - name: project-management
-        image: devheavenci/project-management-service
+      - name: auth
+        image: devheavenci/auth-service
         ports:
         - containerPort: 8080
         env:
-        - name: SPRING_HOST
+        - name: GO_HOST
           value: "0.0.0.0"
-        - name: SPRING_PORT
+        - name: GO_PORT
           value: "8080"
         - name: POSTGRES_HOST
-          value: "project-management-db-service"
+          value: "auth-db-service"
         - name: POSTGRES_PORT
           value: "5432"
         - name: POSTGRES_USERNAME
           valueFrom:
             secretKeyRef:
-                name: project-management-db
+                name: auth-db
                 key: username
         - name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
-                name: project-management-db
+                name: auth-db
                 key: password
         - name: POSTGRES_DB
           value: "devheaven"
-        - name: KAFKA_HOST
-          value: "kafka-production.production.svc.cluster.local:9092"
-        - name: KAFKA_GROUP_ID
-          value: "project-management-service"

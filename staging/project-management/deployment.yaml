@@ -43,6 +43,6 @@ spec:
         - name: POSTGRES_DB
           value: "devheaven"
         - name: KAFKA_HOST
-          value: "kafka-staging.kafka-staging.svc.cluster.local:9092"
+          value: "kafka-staging.staging.svc.cluster.local:9092"
         - name: KAFKA_GROUP_ID
           value: "project-management-service"

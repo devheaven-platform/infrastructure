@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hour-deployment
+  labels:
+    app: hour
+  namespace: production
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: hour
+  template:
+    metadata:
+      labels:
+        app: hour
+    spec:
+      containers:
+      - name: hour
+        image: devheavenci/hour-service
+        ports:
+        - containerPort: 8080
+        env:
+        - name: NODE_HOST
+          value: "0.0.0.0"
+        - name: NODE_PORT
+          value: "8080"
+        - name: MONGO_DB
+          value: "devheaven"
+        - name: MONGO_URI
+          value: "mongodb://hour-db-service:27017/"
