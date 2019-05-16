@@ -5,5 +5,5 @@ webhook:
 
 resources:
   requests:
-    cpu: 10m
-    memory: 32Mi
+    cpu: 20m
+    memory: 64Mi
