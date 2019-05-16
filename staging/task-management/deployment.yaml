@@ -21,6 +21,13 @@ spec:
         image: devheavenci/task-management-service
         ports:
         - containerPort: 8080
+        resources:
+          requests:
+            cpu: 250m
+            memory: 64Mi
+          limits:
+            cpu: 500m
+            memory: 128Mi
         env:
         - name: NODE_HOST
           value: "0.0.0.0"
@@ -31,6 +38,6 @@ spec:
         - name: MONGO_URI
           value: "mongodb://task-management-db-service:27017/"
         - name: KAFKA_HOST
-          value: "kafka-staging.kafka-staging.svc.cluster.local:9092"
+          value: "kafka-staging.staging.svc.cluster.local:9092"
         - name: KAFKA_GROUP_ID
           value: "task-management-service"
