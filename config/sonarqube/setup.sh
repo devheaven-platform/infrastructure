@@ -9,6 +9,7 @@ echo "Installing sonarqube"
 helm install stable/sonarqube \
     --name sonarqube \
     --namespace sonarqube \
+    --version 0.11.0 \
     --values values.yaml
 echo
 
