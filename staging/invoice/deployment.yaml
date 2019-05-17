@@ -37,3 +37,9 @@ spec:
           value: "devheaven"
         - name: MONGO_URI
           value: "mongodb://invoice-db-service:27017/"
+        - name: PROJECT_MANAGEMENT_URI
+          value: http://project-management-service/
+        - name: TASK_MANAGEMENT_URI
+          value: http://task-management-service/
+        - name: CLIENT_URI
+          value: http://client-service/
