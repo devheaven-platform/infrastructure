@@ -20,6 +20,13 @@ spec:
         image: postgres:9.6
         ports:
         - containerPort: 5432
+        resources:
+          requests:
+            cpu: 250m
+            memory: 256Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
         env:
         - name: POSTGRES_DB
           value: "devheaven"

@@ -17,13 +17,13 @@ imagePullPolicy: "IfNotPresent"
 
 ## Configure resource requests and limits
 ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
-resources: {}
-  # limits:
-  #   cpu: 200m
-  #   memory: 1536Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 1024Mi
+resources:
+  limits:
+    cpu: 200m
+    memory: 1536Mi
+  requests:
+    cpu: 100m
+    memory: 1024Mi
 kafkaHeapOptions: "-Xmx1G -Xms1G"
 
 ## The StatefulSet Update Strategy which Kafka will use when changes are applied.
@@ -273,13 +273,13 @@ prometheus:
     ## Port jmx-exporter exposes Prometheus format metrics to scrape
     port: 5556
 
-    resources: {}
-      # limits:
-      #   cpu: 200m
-      #   memory: 1Gi
-      # requests:
-      #   cpu: 100m
-      #   memory: 100Mi
+    resources:
+      limits:
+        cpu: 200m
+        memory: 1Gi
+      requests:
+        cpu: 100m
+        memory: 100Mi
 
   ## Prometheus Kafka Exporter: exposes complimentary metrics to JMX Exporter
   kafka:
@@ -301,13 +301,13 @@ prometheus:
     port: 9308
 
     ## Resource limits
-    resources: {}
-#      limits:
-#        cpu: 200m
-#        memory: 1Gi
-#      requests:
-#        cpu: 100m
-#        memory: 100Mi
+    resources:
+      limits:
+        cpu: 200m
+        memory: 1Gi
+      requests:
+        cpu: 100m
+        memory: 100Mi
 
     # Tolerations for nodes that have taints on them.
     # Useful if you want to dedicate nodes to just run kafka-exporter

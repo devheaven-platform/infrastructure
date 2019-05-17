@@ -2,3 +2,8 @@ fullnameOverride: cert-manager
 
 webhook:
   enabled: false
+
+resources:
+  requests:
+    cpu: 20m
+    memory: 64Mi

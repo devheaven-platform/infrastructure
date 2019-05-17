@@ -46,6 +46,53 @@ server:
     DRONE_DATABASE_DRIVER: "sqlite3"
     DRONE_DATABASE_DATASOURCE: "/var/lib/drone/drone.sqlite"
 
+  ## CPU and memory limits for drone server
+  ##
+  resources:
+    requests:
+      memory: 32Mi
+      cpu: 40m
+    limits:
+      memory: 2Gi
+      cpu: 1
+
+agent:
+  ## Drone agent configuration.
+  ## Values in here get injected as environment variables.
+  ## ref: https://docs.drone.io/reference/agent/
+  ##
+  env:
+    DRONE_LOGS_DEBUG: "false"
+
+  ## Number of drone agent replicas
+  replicas: 4
+
+  ## Additional agent annotations.
+  ## ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+  ##
+  annotations: {}
+
+  ## CPU and memory limits for drone agent
+  ##
+  resources:
+    requests:
+      memory: 32Mi
+      cpu: 40m
+    limits:
+      memory: 2Gi
+      cpu: 1
+
+dind:
+  ## CPU and memory limits for dind
+  ##
+  resources:
+    requests:
+      memory: 32Mi
+      cpu: 40m
+    limits:
+      memory: 2Gi
+      cpu: 1
+
 ## Enable scraping of the /metrics endpoint for Prometheus
 metrics:
   prometheus:
