@@ -37,6 +37,8 @@ spec:
           value: "devheaven"
         - name: MONGO_URI
           value: "mongodb://task-management-db-service:27017/"
+        - name: PROJECT_MANAGEMENT_URI
+          value: "http://project-management-service"
         - name: KAFKA_HOST
           value: "kafka-production.production.svc.cluster.local:9092"
         - name: KAFKA_GROUP_ID
