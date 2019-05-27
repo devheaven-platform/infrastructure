@@ -11,17 +11,19 @@ helm repo update
 echo
 
 echo "Installing loki"
-helm install loki loki/loki \
+helm install \
     --name loki \
     --namespace logging \
-    --values loki/values.yaml
+    --values loki/values.yaml \
+    loki/loki
 echo
 
 echo "Installing promtail"
-helm install promtail loki/promtail \
+helm install \
     --name promtail \
     --namespace logging \
-    --values promtail/values.yaml
+    --values promtail/values.yaml \
+    loki/promtail
 echo
 
 echo "Done"
