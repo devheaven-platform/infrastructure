@@ -8,6 +8,8 @@ echo
 echo "Adding loki to helm"
 helm repo add loki https://grafana.github.io/loki/charts
 helm repo update
+echo
+
 echo "Installing loki"
 helm install loki loki/loki \
     --name loki \
