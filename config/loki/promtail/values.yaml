@@ -56,7 +56,7 @@ readinessProbe:
   successThreshold: 1
   timeoutSeconds: 1
 
-resources: {}
+resources:
   limits:
     cpu: 200m
     memory: 128Mi

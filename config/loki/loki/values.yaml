@@ -123,7 +123,7 @@ readinessProbe:
 
 replicas: 1
 
-resources: {}
+resources:
   limits:
     cpu: 200m
     memory: 256Mi
