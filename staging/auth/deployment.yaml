@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: auth
-        image: devheavenci/auth-service
+        image: devheavenci/auth-service:07329536
         ports:
         - containerPort: 8080
         resources:
@@ -33,6 +33,15 @@ spec:
           value: "0.0.0.0"
         - name: GO_PORT
           value: "8080"
+        - name: JWT_ISSUER
+          value: DevHeaven
+        - name: JWT_EXPIRES
+          value: "24"
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+                name: staging-jwt
+                key: secret
         - name: POSTGRES_HOST
           value: "auth-db-service"
         - name: POSTGRES_PORT
