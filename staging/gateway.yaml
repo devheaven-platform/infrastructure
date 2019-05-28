@@ -32,6 +32,10 @@ spec:
         backend:
           serviceName: auth-service
           servicePort: 80
+      - path: /api\/((personnel\/).*)
+        backend:
+          serviceName: personnel-service
+          servicePort: 80
       - path: /?(.*)
         backend:
           serviceName: frontend-service
@@ -58,6 +62,10 @@ spec:
       - path: /auth/?(.*)
         backend:
           serviceName: auth-service
+          servicePort: 80
+      - path: /personnel/?(.*)
+        backend:
+          serviceName: personnel-service
           servicePort: 80
   tls:
   - hosts:
