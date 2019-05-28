@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: auth
-        image: devheavenci/auth-service:07329536
+        image: devheavenci/auth-service
         ports:
         - containerPort: 8080
         resources:
