@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: personnel-db-service
+  labels:
+    app: personnel-db
+  namespace: staging
+spec:
+  type: ClusterIP
+  ports:
+  - name: mongo
+    port: 27017
+    protocol: TCP
+    targetPort: 27017
+  selector:
+    app: personnel-db
