@@ -655,8 +655,8 @@ prometheusOperator:
   ##
   resources:
     limits:
-      cpu: 200m
-      memory: 200Mi
+      cpu: 400m
+      memory: 400Mi
     requests:
       cpu: 100m
       memory: 100Mi
