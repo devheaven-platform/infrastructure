@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-deployment
+  labels:
+    app: client
+  namespace: production
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: client
+  template:
+    metadata:
+      labels:
+        app: client
+    spec:
+      containers:
+      - name: client
+        image: devheavenci/client-service
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: 250m
+            memory: 64Mi
+          limits:
+            cpu: 500m
+            memory: 128Mi
+        env:
+        - name: NODE_HOST
+          value: "0.0.0.0"
+        - name: NODE_PORT
+          value: "8080"
+        - name: MONGO_DB
+          value: "devheaven"
+        - name: MONGO_URI
+          value: "mongodb://client-db-service:27017/"
