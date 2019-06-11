@@ -42,3 +42,5 @@ spec:
                 key: secret
         - name: MONGO_URI
           value: "mongodb://personnel-db-service:27017/"
+        - name: AUTH_URI
+          value: "http://auth-service"
