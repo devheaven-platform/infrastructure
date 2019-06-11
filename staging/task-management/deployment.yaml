@@ -33,6 +33,11 @@ spec:
           value: "0.0.0.0"
         - name: NODE_PORT
           value: "8080"
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+                name: staging-jwt
+                key: secret
         - name: MONGO_DB
           value: "devheaven"
         - name: MONGO_URI

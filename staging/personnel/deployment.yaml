@@ -35,6 +35,11 @@ spec:
           value: "8080"
         - name: MONGO_DB
           value: "devheaven"
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+                name: staging-jwt
+                key: secret
         - name: MONGO_URI
           value: "mongodb://personnel-db-service:27017/"
         - name: AUTH_URI
