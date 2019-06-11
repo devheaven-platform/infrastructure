@@ -659,7 +659,7 @@ prometheusOperator:
       memory: 400Mi
     requests:
       cpu: 100m
-      memory: 100Mi
+      memory: 200Mi
 
   ## Define which Nodes the Pods are scheduled on.
   ## ref: https://kubernetes.io/docs/user-guide/node-selection/
@@ -991,7 +991,7 @@ prometheus:
       requests:
         memory: 1024Mi
       limits:
-        memory: 1024Mi
+        memory: 2048Mi
 
     ## Prometheus StorageSpec for persistent data
     ## ref: https://github.com/coreos/prometheus-operator/blob/master/Documentation/user-guides/storage.md

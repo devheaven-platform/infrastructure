@@ -33,6 +33,11 @@ spec:
           value: "0.0.0.0"
         - name: SPRING_PORT
           value: "8080"
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+                name: staging-jwt
+                key: secret
         - name: POSTGRES_HOST
           value: "project-management-db-service"
         - name: POSTGRES_PORT
